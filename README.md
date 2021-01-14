@@ -6,22 +6,22 @@
 
 ```bash
 # Activate virtualenv
-cd Interview-Quiz/
-/env/Scripts/activate
+> cd Interview-Quiz/
+> /env/Scripts/activate
 
 # Serve API on localhost:8000
-cd Interview-Quiz/mysite
-python manage.py runserver
+> cd Interview-Quiz/mysite
+> python manage.py runserver
 ```
 
 ### Run front end webpack
 
 ```bash
 # Install dependencies
-npm install
+> npm install
 
 # Run webpack
-npm start
+> npm start
 ```
 
 ### Python virtual environments
