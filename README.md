@@ -23,3 +23,8 @@ npm install
 # Run webpack
 npm start
 ```
+
+### Python virtual environments
+```bash
+If you never install virtualenv in python. You can follow from [Packages using pip and virtual environments] (https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+```
