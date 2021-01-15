@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-### Run django is side server(API.)
+### Run django is side server (Application Programming Interface)
 
 ```bash
 # Activate virtualenv
