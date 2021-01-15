@@ -18,6 +18,7 @@
 
 ```bash
 # Install dependencies
+> cd Interview-Quiz/loginfrontend
 > npm install
 
 # Run webpack

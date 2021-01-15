@@ -1,66 +1,53 @@
-import React, { Component } from 'react';
+import { useState } from "react";
+import { TextField, Typography, Button } from "@material-ui/core";
 
-export default class Login extends Component {
+export default function Login({ login, setIsLogin }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-    state = {
-        credentials: {username:"", password:""}
+  const handleLogin = () => {
+    let loggined = login(username, password);
+    if (loggined) {
+        console.log("Logged in.")
     }
+  };
 
-    login = event => {
-        console.log(this.state.credentials);
-        fetch('http://127.0.0.1:8000/auth/', {
-            method: 'POST',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify(this.state.credentials),
-        }).then(data => data.json())
-        .then(
-            data => {
-                console.log(data);
-            }
-        ).catch(
-            error => console.error(error))
-    }
-
-    register = event => {
-        console.log(this.state.credentials);
-        fetch('http://127.0.0.1:8000/auth/', {
-            method: 'POST',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify(this.state.credentials),
-        }).then(data => data.json())
-        .then(
-            data => {
-                console.log(data);
-            }
-        ).catch(
-            error => console.error(error))
-    }
-
-    inputChanged = event => {
-        const cred = this.state.credentials;
-        cred[event.target.name] = event.target.value;
-        this.setState({credentials: cred});
-    }
-
-    render() {
-        return(
-            <div>
-                <h1>Login</h1>
-                <label>
-                    Username:
-                    <input type="text" name="username" value={this.state.credentials.username} 
-                    onChange={this.inputChanged} />
-                </label>
-                <br/>
-                <label>
-                    Password:
-                    <input type="password" name="password" value={this.state.credentials.password}
-                    onChange={this.inputChanged} />
-                </label>
-                <br/>
-                <button onClick={this.login}>Login</button>
-            </div>
-        );
-    }
-    
+  return (
+    <form>
+      <Typography variant="h3" style={{ marginBottom: 8 }}>
+        Login
+      </Typography>
+      <TextField
+        label="Username"
+        variant="outlined"
+        fullwidth
+        className="form-input"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <br/>
+      <TextField
+        label="Password"
+        variant="outlined"
+        fullwidth
+        className="form-input"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <br/>
+      <br/>
+      <Button variant="contained" color="primary" fullwidth size="large" onClick={() => handleLogin()}>
+        login
+      </Button>{" "}
+      <Button
+        variant="contained"
+        color="secondary"
+        full width
+        size="large"
+        onClick={() => setIsLogin(false)}
+      >
+        register
+      </Button>
+    </form>
+  );
 }
